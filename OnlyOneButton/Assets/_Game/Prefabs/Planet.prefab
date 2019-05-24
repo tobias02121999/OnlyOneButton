@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4784805706785304}
   - component: {fileID: 114800107687831404}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4605919324299078}
   - component: {fileID: 212819238580182600}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,8 @@ GameObject:
   - component: {fileID: 4984642163090416}
   - component: {fileID: 33650544228172194}
   - component: {fileID: 23134760226189208}
-  m_Layer: 0
+  - component: {fileID: 64617007473531126}
+  m_Layer: 10
   m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4878717622847026}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,6 +172,20 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193103259311446}
+  m_Mesh: {fileID: 4300000, guid: 0276e8c6a1f2ede4fae01e9f8f42b137, type: 3}
+--- !u!64 &64617007473531126
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1193103259311446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0276e8c6a1f2ede4fae01e9f8f42b137, type: 3}
 --- !u!114 &114800107687831404
 MonoBehaviour:

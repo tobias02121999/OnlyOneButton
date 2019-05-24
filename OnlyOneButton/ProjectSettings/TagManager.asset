@@ -14,10 +14,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Hit Collider
+  - Planet
+  - Landing Collider
+  - Hazard
   - 
   - 
   - 
