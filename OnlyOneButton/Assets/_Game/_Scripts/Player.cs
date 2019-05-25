@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     // Initialize the private variables
     float rotationX;
     float fuel = 1;
+    bool isStationed;
 
     // Run this code once at the start
     void Start()
@@ -40,6 +41,9 @@ public class Player : MonoBehaviour
         // Set the cursor settings
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Start the stationed check coroutine
+        StartCoroutine(StationedCheckCycle(1, 2.5f));
     }
 
     // Run this code every single frame
@@ -125,9 +129,28 @@ public class Player : MonoBehaviour
     // Refuel the players fuel
     void Refuel()
     {
-        if (fuel <= 1 - refuelSpeed)
-            fuel += refuelSpeed;
+        if (isStationed)
+        {
+            if (fuel <= 1 - refuelSpeed)
+                fuel += refuelSpeed;
+            else
+                fuel = 1;
+        }
+    }
+
+    // Check if the player is stationed or not
+    IEnumerator StationedCheckCycle(int checkInterval, float rotationThreshold)
+    {
+        float rotationOld = transform.eulerAngles.x;
+        yield return new WaitForSeconds(checkInterval);
+        float rotationNew = transform.eulerAngles.x;
+
+        float difference = Mathf.Abs(rotationOld - rotationNew);
+        if (difference <= rotationThreshold)
+            isStationed = true;
         else
-            fuel = 1;
+            isStationed = false;
+
+        StartCoroutine(StationedCheckCycle(checkInterval, rotationThreshold)); // Loop the coroutine
     }
 }
