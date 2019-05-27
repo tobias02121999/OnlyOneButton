@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
 
         // Start the stationed check coroutine
         StartCoroutine(StationedCheckCycle(1, 2.5f));
+
+        // Set the rotation to equal the current
+        rotationX = transform.eulerAngles.x;
     }
 
     // Run this code every single frame
@@ -98,7 +101,7 @@ public class Player : MonoBehaviour
     {
         modelTransform.Rotate(0f, speed, 0f);
 
-        rotationX += Input.GetAxis("Mouse X") * lookRotationSpeed;
+        rotationX += Input.GetAxis("Turn") * lookRotationSpeed;
         Quaternion targetRotation = Quaternion.Euler(rotationX, 90f, 90f);
 
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, lookRotationLerp * Time.deltaTime);

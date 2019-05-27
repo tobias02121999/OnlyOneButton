@@ -53,6 +53,6 @@ public class Planet : MonoBehaviour
         float dist = Vector3.Distance(transform.position, playerTransform.position);
         float force = (range - dist) * gravity;
 
-        playerScript.rb.velocity += targetForward * gravity;
+        playerScript.rb.velocity += targetForward * force;
     }
 }
