@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class CollisionCheck : MonoBehaviour
 {
-    private int collisionCount = 0;
+    public bool isColliding;
 
-    public bool isColliding
+    private void OnTriggerEnter(Collider other)
     {
-        get { return collisionCount != 0; }
+        isColliding = true;
+        Debug.Log(other.name);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        collisionCount++;
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        collisionCount--;
+        isColliding = false;
+        Debug.Log(other.name);
     }
 }
